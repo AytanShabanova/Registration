@@ -13,5 +13,6 @@ import lombok.experimental.FieldDefaults;
 public class RegisterPayload {
     String name;
     String email;
+    String role;
     String password;
 }

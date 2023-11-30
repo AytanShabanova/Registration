@@ -33,7 +33,7 @@ public class SecurityConfiguration {
                     // Swagger UI
                     request.requestMatchers("/v3/api-docs/**", "/swagger-ui/**").permitAll();
                     // Auth URLs
-                    request.requestMatchers("/api/v1/employee/**").permitAll();
+                    request.requestMatchers("/v1/employee/**").permitAll();
 
 
 
@@ -47,4 +47,5 @@ public class SecurityConfiguration {
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .build();
     }
+
 }

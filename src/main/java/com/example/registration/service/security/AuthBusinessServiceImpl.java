@@ -56,7 +56,9 @@ public class AuthBusinessServiceImpl implements AuthBusinessService {
 
     @Override
     public RegisterResponse register(RegisterPayload registerPayload) {
-
+        registerPayload.setRole("ROLE_USER");
+     User user=objectMapper.convertValue(registerPayload, User.class);
+        userService.save(user);
         return convertRegisterResponse(registerPayload);
     }
 

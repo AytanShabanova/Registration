@@ -21,8 +21,7 @@ public class AuthFilter extends OncePerRequestFilter {
     private final AuthBusinessServiceImpl authBusinessService;
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-//        System.out.println(request.getParameter("username"));
-//        System.out.println(request.getParameter("password"));
+
         String token = request.getHeader(HttpHeaders.AUTHORIZATION);
         if (Objects.nonNull(token) && token.startsWith("Bearer")){
             String decodeToken = token.substring(7);

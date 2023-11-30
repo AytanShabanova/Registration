@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/employee")
+@RequestMapping("/v1/employee")
 @RequiredArgsConstructor
 public class EmployeeController {
    private final UserService userService;
