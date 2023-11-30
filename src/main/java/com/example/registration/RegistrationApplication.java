@@ -16,9 +16,9 @@ import java.util.Base64;
 
 
 @SpringBootApplication
-@RequiredArgsConstructor
+
 public class RegistrationApplication implements CommandLineRunner {
-	private final TestService testService;
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(RegistrationApplication.class, args);
@@ -35,6 +35,6 @@ public class RegistrationApplication implements CommandLineRunner {
 //		PublicKey publicKey = pair.getPublic();
 //		String publicKey1=Base64.getEncoder().encodeToString(publicKey.getEncoded());
 //		System.out.println("public--"+publicKey1  );
-		System.out.println("token--"+testService.testJwt());
+
 	}
 }

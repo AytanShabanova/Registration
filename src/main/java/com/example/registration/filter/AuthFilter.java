@@ -16,20 +16,23 @@ import java.util.Objects;
 
 @Component
 @RequiredArgsConstructor
+
 public class AuthFilter extends OncePerRequestFilter {
     private final AccessTokenManager accessTokenManager;
     private final AuthBusinessServiceImpl authBusinessService;
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-
         String token = request.getHeader(HttpHeaders.AUTHORIZATION);
-        if (Objects.nonNull(token) && token.startsWith("Bearer")){
+        if (Objects.nonNull(token) && token.startsWith("Bearer")) {
             String decodeToken = token.substring(7);
-            if (null !=accessTokenManager.getEmail(decodeToken)){
-            authBusinessService.setAuthentication(accessTokenManager.getEmail(
-                    decodeToken
-            ));
+            if (null != accessTokenManager.getEmail(decodeToken)) {
+                authBusinessService.setAuthentication(
+                        accessTokenManager.getEmail(
+                                decodeToken
+                        )
+                );
             }
+
         }
         filterChain.doFilter(request,response);
     }
